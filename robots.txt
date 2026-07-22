@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lostatuajesdeunamorra.com/sitemap.xml
+Sitemap: https://jonathant506.github.io/tatuajes-de-una-morra/sitemap.xml
