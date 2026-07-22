@@ -723,7 +723,7 @@ footer a:hover {
     }
     
     .nav-links.active {
-        max-height: 350px;
+        max-height: 450px;
         opacity: 1;
         transform: translateY(0);
         padding: 1.5rem 0 1rem 0;
@@ -774,7 +774,7 @@ footer a:hover {
     }
     
     .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
     }
     
@@ -788,9 +788,7 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
+
     
     .sticky-whatsapp {
         bottom: 16px;
