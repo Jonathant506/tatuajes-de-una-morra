@@ -242,8 +242,8 @@ img {
 
 /* 1. HERO */
 .hero {
-    height: 100vh;
-    min-height: 600px;
+    height: 80vh;
+    min-height: 500px;
     position: relative;
     display: flex;
     align-items: flex-end;
@@ -389,20 +389,45 @@ img {
     font-size: 1.125rem;
 }
 
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.portfolio-gallery {
+    display: flex;
     gap: 2rem;
-    margin-bottom: 4rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1.5rem max(5vw, calc((100vw - 1200px) / 2)) 2.5rem max(5vw, calc((100vw - 1200px) / 2));
+    scroll-padding: 0 max(5vw, calc((100vw - 1200px) / 2));
+    margin-bottom: 3.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-almond) transparent;
+}
+
+/* Custom Webkit scrollbar for premium touch */
+.portfolio-gallery::-webkit-scrollbar {
+    height: 6px;
+}
+.portfolio-gallery::-webkit-scrollbar-track {
+    background: rgba(74, 78, 105, 0.05);
+    border-radius: 10px;
+}
+.portfolio-gallery::-webkit-scrollbar-thumb {
+    background: var(--color-almond);
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+.portfolio-gallery::-webkit-scrollbar-thumb:hover {
+    background: var(--color-lilac);
 }
 
 .portfolio-item {
+    flex: 0 0 350px;
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
     aspect-ratio: 1/1;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 24px rgba(34, 34, 59, 0.06);
+    scroll-snap-align: start;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
 }
 
 .portfolio-item img {
@@ -424,8 +449,13 @@ img {
     mix-blend-mode: multiply;
 }
 
+.portfolio-item:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 16px 35px rgba(34, 34, 59, 0.12);
+}
+
 .portfolio-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
 .portfolio-item:hover .portfolio-overlay {
@@ -773,9 +803,13 @@ footer a:hover {
         border-radius: 0;
     }
     
-    .portfolio-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .portfolio-gallery {
         gap: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .portfolio-item {
+        flex: 0 0 260px;
     }
     
     .testimonials-grid {

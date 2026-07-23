@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(style);
 
     // Select elements to animate
-    const elementsToReveal = document.querySelectorAll('.about-text, .about-image-wrapper, .section-header, .portfolio-item, .testimonial-card, .faq .section-title, .accordion-item, .cta-final h2, .cta-final p');
+    const elementsToReveal = document.querySelectorAll('.about-text, .about-image-wrapper, .section-header, .portfolio-gallery, .testimonial-card, .faq .section-title, .accordion-item, .cta-final h2, .cta-final p');
     
     elementsToReveal.forEach((el, index) => {
         el.classList.add('reveal-on-scroll');
-        // Add slightly different transition delays for grid items
-        if (el.classList.contains('portfolio-item') || el.classList.contains('testimonial-card') || el.classList.contains('accordion-item')) {
+        // Add slightly different transition delays for grid items (testimonial cards, accordion items)
+        if (el.classList.contains('testimonial-card') || el.classList.contains('accordion-item')) {
             el.style.transitionDelay = `${(index % 3) * 0.1}s`;
         }
     });
