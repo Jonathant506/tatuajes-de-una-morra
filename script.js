@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(style);
 
     // Select elements to animate
-    const elementsToReveal = document.querySelectorAll('.about-text, .about-image-wrapper, .section-header, .portfolio-gallery, .testimonial-card, .faq .section-title, .accordion-item, .cta-final h2, .cta-final p');
+    const elementsToReveal = document.querySelectorAll('.about-text, .about-image-wrapper, .section-header, .portfolio-gallery, .testimonial-card, .faq .section-title, .accordion-item, .cta-final h2, .cta-final p, .process-card');
     
     elementsToReveal.forEach((el, index) => {
         el.classList.add('reveal-on-scroll');
-        // Add slightly different transition delays for grid items (testimonial cards, accordion items)
-        if (el.classList.contains('testimonial-card') || el.classList.contains('accordion-item')) {
+        // Add slightly different transition delays for grid items (testimonial cards, accordion items, process cards)
+        if (el.classList.contains('testimonial-card') || el.classList.contains('accordion-item') || el.classList.contains('process-card')) {
             el.style.transitionDelay = `${(index % 3) * 0.1}s`;
         }
     });
@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (dec.classList.contains('decoration-3')) { rotate = 0; speed = 0.12; }
                 if (dec.classList.contains('decoration-4')) { rotate = 20; speed = 0.18; }
                 if (dec.classList.contains('decoration-5')) { rotate = -15; speed = -0.14; }
+                if (dec.classList.contains('decoration-6')) { rotate = 20; speed = 0.14; }
                 
                 const yPos = distanceCenter * speed;
                 dec.style.transform = `translateY(${yPos}px) rotate(${rotate}deg)`;
@@ -131,4 +132,135 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 5. Policy Modal Logic
+    const policyModal = document.getElementById('policy-modal');
+    const closeModalBtn = document.getElementById('close-policy-modal');
+    const policyTriggers = document.querySelectorAll('.trigger-policy-modal');
+
+    function openPolicyModal() {
+        if (!policyModal) return;
+        policyModal.classList.add('active');
+        policyModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePolicyModal() {
+        if (!policyModal) return;
+        policyModal.classList.remove('active');
+        policyModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    policyTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openPolicyModal();
+        });
+    });
+
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closePolicyModal);
+    }
+
+    if (policyModal) {
+        policyModal.addEventListener('click', (e) => {
+            if (e.target === policyModal) {
+                closePolicyModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && policyModal && policyModal.classList.contains('active')) {
+            closePolicyModal();
+        }
+    });
 });
+    // Review modal logic
+    const openReviewBtn = document.getElementById('open-review-modal');
+    const closeReviewBtn = document.getElementById('close-review-modal');
+    const reviewModal = document.getElementById('review-modal');
+    const reviewForm = document.getElementById('review-form');
+    const reviewSuccess = document.getElementById('review-success');
+    const starContainer = document.querySelector('.star-rating');
+
+    function openReviewModal() {
+        if (!reviewModal) return;
+        reviewModal.classList.add('active');
+        reviewModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeReviewModal() {
+        if (!reviewModal) return;
+        reviewModal.classList.remove('active');
+        reviewModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (reviewForm) reviewForm.reset();
+        setRating(0);
+        if (reviewSuccess) reviewSuccess.classList.add('hidden');
+    }
+    if (openReviewBtn) openReviewBtn.addEventListener('click', openReviewModal);
+    if (closeReviewBtn) closeReviewBtn.addEventListener('click', closeReviewModal);
+    if (reviewModal) {
+        reviewModal.addEventListener('click', (e) => {
+            if (e.target === reviewModal) closeReviewModal();
+        });
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && reviewModal?.classList.contains('active')) {
+            closeReviewModal();
+        }
+    });
+
+    // Star rating handling
+    function setRating(value) {
+        if (!starContainer) return;
+        starContainer.dataset.rating = value;
+        const stars = starContainer.querySelectorAll('.star');
+        stars.forEach(star => {
+            const val = parseInt(star.dataset.value);
+            star.textContent = val <= value ? '★' : '☆';
+        });
+    }
+    if (starContainer) {
+        starContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('star')) {
+                const val = parseInt(e.target.dataset.value);
+                setRating(val);
+            }
+        });
+    }
+
+    // Form submission
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = reviewForm.name.value.trim();
+            const city = reviewForm.city.value.trim();
+            const rating = parseInt(starContainer?.dataset.rating || '0');
+            const comment = reviewForm.comment.value.trim();
+            if (!name || !rating || !comment) {
+                alert('Por favor completa los campos obligatorios.');
+                return;
+            }
+            const payload = { name, city, rating, comment };
+            try {
+                const resp = await fetch('/api/submit-review', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                if (resp.ok) {
+                    if (reviewSuccess) reviewSuccess.classList.remove('hidden');
+                    reviewForm.reset();
+                    setRating(0);
+                } else {
+                    alert('Error al enviar la reseña.');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error de red al enviar la reseña.');
+            }
+        });
+    }

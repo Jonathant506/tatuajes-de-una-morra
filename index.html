@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="style.css?v=1.1.0">
+<link rel="stylesheet" href="reviews.css">
 </head>
 
 <body>
@@ -54,6 +55,7 @@
                 <li><a href="#home">Inicio</a></li>
                 <li><a href="#about">Sobre mí</a></li>
                 <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#process">Proceso</a></li>
                 <li><a href="#testimonials">Reseñas</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#cta">Cotizar</a></li>
@@ -157,11 +159,83 @@
         </div>
     </section>
 
-    <!-- 4. TESTIMONIALS -->
+    <!-- 4. PROCESS / CÓMO AGENDAR -->
+    <section class="process" id="process">
+        <img src="assets/images/illustrations/illus-4.webp" alt="" class="decoration decoration-6" aria-hidden="true">
+        <div class="container relative-z">
+            <div class="section-header">
+                <h2>¿Cómo agendar una cita? 🗓️</h2>
+                <p class="subheadline">El paso a paso para apartar tu lugar y hacer realidad tu tatuaje.</p>
+            </div>
+        </div>
+
+        <div class="process-scroll-wrapper relative-z">
+            <div class="process-cards">
+                <!-- CARD 1 (COMBINED AVAILABILITY & SCHEDULE) -->
+                <div class="process-card">
+                    <div class="card-header">
+                        <span class="step-number">01</span>
+                        <span class="step-tag">Paso 1</span>
+                    </div>
+                    <h3>Propón tu fecha y horario</h3>
+                    <p>Si estás de acuerdo con la cotización, el siguiente paso es agendar tu cita. Cuéntame qué días y horarios tienes disponibles para encontrar la opción que mejor se adapte a ambos.</p>
+                    <p><strong>Mi horario habitual es:</strong></p>
+                    <ul class="schedule-list">
+                        <li><strong>Martes a viernes:</strong> de 1:00 p.m. en adelante.</li>
+                        <li><strong>Sábados:</strong> a partir de las 11:00 a.m.</li>
+                    </ul>
+                    <p class="note">Si necesitas un horario diferente, házmelo saber. Siempre que sea posible, podemos ajustarnos a tus necesidades.</p>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="process-card">
+                    <div class="card-header">
+                        <span class="step-number">02</span>
+                        <span class="step-tag">Paso 2</span>
+                    </div>
+                    <h3>Reserva tu lugar</h3>
+                    <p>Una vez que acordemos la fecha y la hora, se solicitará un anticipo de <strong>$500 MXN</strong> para apartar tu cita.</p>
+                    <p>Este anticipo se descontará del costo total de tu tatuaje.</p>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="process-card">
+                    <div class="card-header">
+                        <span class="step-number">03</span>
+                        <span class="step-tag">Paso 3</span>
+                    </div>
+                    <h3>Espacio reservado para ti</h3>
+                    <p>El anticipo no es reembolsable en caso de cancelación, ya que ese espacio queda reservado exclusivamente para ti.</p>
+                    <p>Si necesitas reprogramar tu cita, avísame con anticipación para revisar la disponibilidad.</p>
+                    <button type="button" class="policy-link-btn trigger-policy-modal">Ver política de anticipo &rarr;</button>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="process-card">
+                    <div class="card-header">
+                        <span class="step-number">04</span>
+                        <span class="step-tag">Paso 4</span>
+                    </div>
+                    <h3>Confirmación y detalles</h3>
+                    <p>Una vez realizado el anticipo, repasaremos juntos todos los datos de tu cita (fecha, horario, diseño, tamaño y ubicación del tatuaje) para confirmar que todo esté correcto.</p>
+                    <p class="highlight-text">¡Y listo! Tu cita quedará oficialmente agendada. ✨</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container relative-z">
+            <div class="scroll-hint">
+                <span>Desliza para ver todos los pasos &rarr;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TESTIMONIALS -->
     <section class="testimonials" id="testimonials">
         <img src="assets/images/illustrations/illus-2.webp" alt="" class="decoration decoration-2" aria-hidden="true">
         <div class="container relative-z">
             <h2 class="section-title">Lo que dicen las chicas 🌸</h2>
+            <button id="open-review-modal" class="btn btn-primary review-btn">Dejar una reseña 🌸</button>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <p class="quote">"Tenía mucho miedo de hacerme mi primer tatuaje, pero ella me hizo sentir súper
@@ -195,37 +269,75 @@
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p>Para asegurar el mejor resultado y tu comodidad, por favor considera lo siguiente:</p>
+                            <p>Para que tu experiencia sea lo más cómoda posible y tu tatuaje cicatrice de la mejor manera, sigue estas recomendaciones:</p>
                             <ul>
-                                <li><strong>Mantente bien hidratada</strong> los días previos a tu cita, esto ayuda
-                                    mucho a la piel.</li>
-                                <li><strong>Come bien</strong> antes de venir. Necesitas energía.</li>
-                                <li><strong>No apliques crema anestésica</strong> (lidocaína) ya que altera la textura
-                                    de la piel y afecta el resultado del fine-line.</li>
-                                <li><strong>Evita consumir alcohol</strong> la noche anterior para evitar mayor
-                                    sangrado.</li>
+                                <li>Evita exponerte al sol durante mucho tiempo uno o dos días antes de tu cita. La piel irritada o quemada dificulta el proceso del tatuaje.</li>
+                                <li>Mantente bien hidratado. Toma suficiente agua e hidrata tu piel los días previos.</li>
+                                <li>Come bien y descansa. Llega después de haber comido y de haber dormido lo suficiente; tu cuerpo necesita energía para tolerar mejor la sesión.</li>
+                                <li>Ven sin prisas. Reserva el tiempo necesario para que podamos trabajar con calma y lograr el mejor resultado.</li>
+                                <li>Si tienes alguna condición médica, alergia, sensibilidad o requieres alguna atención especial, házmelo saber con anticipación para brindarte la mejor atención posible.</li>
+                                <li>Si deseas utilizar anestesia tópica (local), avísame antes de tu cita para orientarte sobre la mejor opción y su uso adecuado.</li>
+                            </ul>
+                            <p class="accordion-outro">Gracias por seguir estas recomendaciones. Ayudarán a que tu experiencia sea mucho más cómoda y a obtener el mejor resultado posible.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Cuidados después de tu tatuaje
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Una buena cicatrización es clave para que tu tatuaje sane correctamente y conserve su calidad.</p>
+                            
+                            <h4 class="aftercare-subheading">Si llevas un parche de cicatrización:</h4>
+                            <ul>
+                                <li>Retíralo entre el día 1 y el día 5, siguiendo las indicaciones que te haya dado para tu caso.</li>
+                            </ul>
+
+                            <h4 class="aftercare-subheading">Si llevas plástico protector:</h4>
+                            <ul>
+                                <li>Retíralo en un máximo de 2 horas después de tu cita y comienza de inmediato con los cuidados de limpieza e hidratación.</li>
+                            </ul>
+
+                            <h4 class="aftercare-subheading">Limpieza</h4>
+                            <ul>
+                                <li>Una vez retirado el parche o el plástico, lava el tatuaje con un jabón neutro, utilizando únicamente la espuma.</li>
+                                <li>Usa un jabón exclusivo para lavar tu tatuaje mientras cicatriza.</li>
+                                <li>Lava la zona 2 veces al día. Si es necesario, puedes hacerlo con mayor frecuencia, siempre con cuidado.</li>
+                            </ul>
+
+                            <h4 class="aftercare-subheading">Secado</h4>
+                            <ul>
+                                <li>Seca el tatuaje con una toalla limpia o con papel desechable, dando pequeños toques. Evita frotar la piel.</li>
+                            </ul>
+
+                            <h4 class="aftercare-subheading">Hidratación</h4>
+                            <ul>
+                                <li>Aplica una capa delgada de crema neutra, sin fragancias, perfumes, colorantes, brillos ni protector solar, 2 veces al día.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        Cuidados posteriores (Aftercare)
+                        Durante la cicatrización
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p>El cuidado en casa es crucial para que tu tatuaje sane perfectamente:</p>
+                            <p>Si vives en una zona con mucha humedad, puedes aplicar la crema solo por las noches.</p>
                             <ul>
-                                <li><strong>Protege del sol:</strong> Mantén la exposición al sol al mínimo durante la
-                                    cicatrización.</li>
-                                <li><strong>Evita sumergirlo:</strong> Nada de nadar en el mar, albercas o meterse a
-                                    jacuzzis por al menos 2 semanas.</li>
-                                <li><strong>Limpieza:</strong> Lava suavemente con jabón neutro y aplica una capa muy
-                                    fina de pomada según mis indicaciones.</li>
-                                <li><strong>No rasques:</strong> Es normal que dé comezón, pero no te rasques ni
-                                    arranques las costras.</li>
+                                <li>Evita aplicar demasiada crema; el exceso de humedad puede afectar la cicatrización.</li>
+                                <li>No rasques ni retires las costras. Deja que caigan de forma natural.</li>
+                                <li>Evita albercas, ríos, mar, jacuzzis o cualquier lugar donde el tatuaje permanezca sumergido durante al menos 3 semanas.</li>
+                                <li>Se recomienda evitar el ejercicio durante la primera semana. Lo ideal es esperar 3 semanas, especialmente si la actividad genera fricción, estiramiento o sudor excesivo en la zona tatuada.</li>
+                                <li>Mantén el tatuaje siempre limpio y seco.</li>
+                                <li>Evita la exposición directa al sol durante el proceso de cicatrización. Una vez cicatrizado, utiliza protector solar para conservar mejor el color del tatuaje.</li>
+                                <li>Evita que tus mascotas tengan contacto con la zona tatuada para reducir el riesgo de infección.</li>
                             </ul>
+                            <p class="accordion-outro">Si durante la cicatrización tienes alguna duda o notas algo fuera de lo normal, no dudes en escribirme. Estoy para ayudarte durante todo el proceso.</p>
                         </div>
                     </div>
                 </div>
@@ -252,19 +364,78 @@
             <img src="assets/icons/logo-light.svg?v=1.1.0" alt="Los Tatuajes De Una Morra" class="footer-logo">
             <div>
                 <p>© 2025 Los Tatuajes De Una Morra · Puerto Vallarta, México</p>
-                <a href="https://instagram.com/lostatuajesdeunamorra" target="_blank"
-                    rel="noopener noreferrer">@lostatuajesdeunamorra</a>
+                <div class="footer-links">
+                    <a href="https://instagram.com/lostatuajesdeunamorra" target="_blank"
+                        rel="noopener noreferrer">@lostatuajesdeunamorra</a>
+                    <span class="footer-separator">·</span>
+                    <button type="button" class="footer-modal-btn trigger-policy-modal" id="open-policy-modal">Política de anticipo</button>
+                </div>
             </div>
             <p class="design-credit">Design by <a href="https://aleppo.io" target="_blank"
                     rel="noopener noreferrer">Aleppo Studio</a></p>
         </div>
     </footer>
-
+<!-- Review Modal -->
+<div id="review-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="review-modal-title">
+  <div class="modal-container">
+    <button class="modal-close-btn" aria-label="Cerrar modal" id="close-review-modal">&times;</button>
+    <div class="modal-header">
+      <h3 id="review-modal-title">Dejar una reseña 🌸</h3>
+    </div>
+    <div class="modal-body">
+      <form id="review-form">
+        <label for="review-name">Nombre<span class="required">*</span></label>
+        <input type="text" id="review-name" name="name" required />
+        <label for="review-city">Ciudad (opcional)</label>
+        <input type="text" id="review-city" name="city" />
+        <label>Calificación<span class="required">*</span></label>
+        <div class="star-rating" data-rating="0">
+          <span data-value="1" class="star">☆</span>
+          <span data-value="2" class="star">☆</span>
+          <span data-value="3" class="star">☆</span>
+          <span data-value="4" class="star">☆</span>
+          <span data-value="5" class="star">☆</span>
+        </div>
+        <label for="review-comment">Reseña<span class="required">*</span></label>
+        <textarea id="review-comment" name="comment" rows="4" maxlength="500" required></textarea>
+        <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
+        <button type="submit" class="btn btn-primary">Enviar reseña</button>
+      </form>
+      <div id="review-success" class="hidden">¡Gracias! Tu reseña ha sido enviada y está pendiente de aprobación.</div>
+    </div>
+  </div>
+</div>
     <!-- STICKY WHATSAPP BUTTON (MOBILE) -->
     <a href="https://wa.me/523222109960" class="sticky-whatsapp" target="_blank" rel="noopener noreferrer"
         aria-label="Contáctame por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+
+    <!-- POLICY MODAL -->
+    <div id="policy-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+        <div class="modal-container">
+            <button class="modal-close-btn" aria-label="Cerrar modal" id="close-policy-modal">&times;</button>
+            <div class="modal-header">
+                <h3 id="modal-title">Política de anticipo</h3>
+            </div>
+            <div class="modal-body">
+                <p>Para reservar tu cita se requiere un anticipo de <strong>$500 MXN</strong>, el cual se descontará del costo total de tu tatuaje.</p>
+                
+                <p class="modal-subtitle">Al realizar el anticipo, aceptas las siguientes condiciones:</p>
+                
+                <ul class="policy-list">
+                    <li>El anticipo no es reembolsable bajo ninguna circunstancia.</li>
+                    <li>En caso de cancelar tu cita, el anticipo se perderá.</li>
+                    <li>El anticipo no es transferible a otra persona.</li>
+                    <li>Si necesitas reprogramar tu cita, deberás avisar con al menos 48 horas de anticipación. De lo contrario, el anticipo se perderá, salvo en casos de fuerza mayor.</li>
+                    <li>El día de tu cita cuentas con 30 minutos de tolerancia. Si prevés que llegarás tarde, avísame lo antes posible para revisar si es posible ajustar el horario.</li>
+                    <li>Si no te presentas a tu cita y no notificas con anticipación, se considerará una cancelación y el anticipo se perderá.</li>
+                </ul>
+
+                <p class="modal-outro">Estas políticas me permiten organizar mi agenda y respetar el tiempo de todos mis clientes. Gracias por tu comprensión.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
