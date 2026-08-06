@@ -1,0 +1,11 @@
+# wrangler.toml
+# Cloudflare Pages configuration with D1 binding
+
+name = "tatuajes-de-una-morra"
+compatibility_date = "2024-09-01"
+
+# D1 database binding – must match `env.DB` used in the workers
+[[d1_databases]]
+binding = "DB"
+database_name = "reviews-db"
+database_id = "453943d5-1b05-44e7-95a7-abd57fd6d357"
